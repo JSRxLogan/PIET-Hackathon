@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specific Answer Chatbot</title>
+</head>
+<body>
+    <div id="chat-container">
+        <div id="chat-box"></div>
+       <textarea  type="text" id="user-input" placeholder="Ask a question..." rows="3"></textarea>
+        <button onclick="sendMessage()">Send</button>
+    </div>
+
+    <script>
+        function sendMessage() {
+            var userInput = document.getElementById("user-input").value;
+            appendMessage("User", userInput);
+            getResponse(userInput);
+            document.getElementById("user-input").value = "";
+        }
+
+        function getResponse(question) {
+            var response;
+            // Check the user's question and provide a specific answer
+            if (question.toLowerCase().includes("how to recycle paper waste")) {
+                response = "you can sell it to your nearest jumk dealer Ramesh(1838492920)";
+            } else if (question.toLowerCase().includes("what to do with radioactive waste")) {
+                response = "Radioactive waste is extremely harmful for humans you should call 121";
+            } else if (question.toLowerCase().includes("what to do with my old laptop")) {
+                response = "Either sell it second hand for 12000 R.s or donate it to children shelter home";
+            } else {
+                response = "NO Response in Data base.";
+            }
+            appendMessage("Chatbot", response);
+        }
+
+        function appendMessage(sender, message) {
+            var chatBox = document.getElementById("chat-box");
+            var messageElement = document.createElement("div");
+            messageElement.innerHTML = "<strong>" + sender + ":</strong> " + message;
+            chatBox.appendChild(messageElement);
+        }
+    </script>
+</body>
+</html>

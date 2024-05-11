@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Statements</title>
+<script>
+function printRandomStatement() {
+    var statements = [
+        "Statement 1",
+        "Statement 2",
+        "Statement 3",
+        "Statement 4"
+    ];
+    var randomIndex = Math.floor(Math.random() * statements.length);
+    document.getElementById("statement").innerHTML = statements[randomIndex];
+}
+</script>
+</head>
+<body>
+<h1>Random Statements</h1>
+<p id="statement"></p>
+<button onclick="printRandomStatement()">Generate Random Statement</button>
+</body>
+</html>
